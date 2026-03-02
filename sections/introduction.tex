@@ -1,18 +1,20 @@
-%% LaTeX2e class for student theses
-%% sections/content.tex
-%% 
-%% Karlsruhe Institute of Technology
-%% Institute for Program Structures and Data Organization
-%% Chair for Software Design and Quality (SDQ)
-%%
-%% Dr.-Ing. Erik Burger
-%% burger@kit.edu
-%%
-%% Version 1.3.3, 2018-04-17
-
 \chapter{Introduction}
+\label{ch:Introduction}
 
+The brain is not a static organ. As an animal learns to navigate its environment, avoid predators, or remember where food sits, the neural populations that encode these experiences undergo profound reorganization. Understanding how this reorganization unfolds across different brain regions and over different timescales remains one of the central challenges in systems neuroscience. This thesis investigates how neural populations in the hippocampus and medial prefrontal cortex restructure their activity patterns during learning, drawing on recent advances in chronic electrophysiology and computational modeling.
 
-%% --------------------
-%% | /Example content |
-%% --------------------
+For decades, the hippocampus has served as the primary model system for studying learning related plasticity. Classical work established that hippocampal neurons develop place fields during spatial navigation and that these representations stabilize with experience. More recently, Sun et al. \cite{sun2025learning} demonstrated that learning produces an orthogonalized state machine in the hippocampus, where neural activity patterns decorrelate over training to form discrete, context specific representations. Using calcium imaging in rodents performing a virtual reality task, they showed that hippocampal activity evolves from correlated to uncorrelated states, closely resembling the training dynamics of a clone structured causal graph. This work provides compelling evidence that the hippocampus implements algorithmic principles similar to hidden Markov models during learning.
+
+Yet the hippocampus does not operate in isolation. To guide behavior, hippocampal representations must interact with cortical structures that encode task demands, action values, and abstract rules. The medial prefrontal cortex in particular has emerged as a critical hub for schema learning and generalization. Bein and Niv \cite{bein2025schemas} reviewed evidence that the mPFC extracts structured representations of task statistics, enabling rapid inference in novel situations. Similarly, Courellis et al. \cite{courellis2024abstract} showed that abstract representations emerge in human hippocampal neurons during inference tasks, though it remains unclear how these representations develop over days of training and how they interact with cortical circuits.
+
+This raises a fundamental question: Is hippocampal orthogonalization a general principle, or do different brain regions implement distinct learning algorithms? Driscoll et al. \cite{driscoll2017dynamic} found that parietal cortex shows highly dynamic reorganizations of activity patterns during learning, with population codes shifting manifold structure on single trial timescales. Gurnani and Cayco Gajic \cite{gurnani2023signatures} reviewed evidence that representational changes in cortex follow signatures predicted by continual learning algorithms, suggesting that distinct computational constraints may shape cortical and hippocampal plasticity.
+
+Another critical gap concerns the temporal dynamics of learning. Although Courellis et al. \cite{courellis2024abstract} demonstrated that neural representations can form rapidly during inference, we understand little about how these representations evolve over extended training periods. Do they stabilize immediately, or do they undergo ongoing refinement? And how does the stability of cortical representations compare to the slowly emerging structure observed in the hippocampus? Addressing these questions requires tracking identified neurons over timescales that exceed the capabilities of standard calcium imaging approaches.
+
+Recent technical advances have made such long term recordings possible. Yasar et al. \cite{yasar2024months} developed Ultra Flexible Tentacle Electrodes capable of chronic implantation with minimal tissue damage. These devices enable tracking of single units across months, bridging the gap between acute recordings and behavioral timescales. When combined with head fixed virtual reality setups, this technology allows precise control over sensory inputs while recording from multiple brain regions during learning.
+
+This thesis leverages these methodological advances to investigate brain wide reorganization during learning. Using a delayed two alternative forced choice task performed by rodents in virtual reality, we track neural populations in the hippocampus and medial prefrontal cortex over weeks of training. Our analysis draws on theoretical frameworks from Panzeri et al. \cite{panzeri2022structures}, who characterized the structures and functions of correlations in neural population codes. We also consider the functional and structural underpinnings of assembly formation described by Holtmaat and Caroni \cite{holtmaat2016functional}, as well as the cortico hippocampal interactions reviewed by Hyman et al. \cite{hyman2010working}.
+
+This thesis is organized around three research questions. First, we ask how population encoding differs between expert and non expert animals. Second, we investigate how gradually representational changes occur during learning. Third, we seek to identify computational algorithms that closely resemble the observed learning dynamics. By comparing representational changes across hippocampus and prefrontal cortex, we aim to determine whether distinct brain regions implement different learning algorithms or whether orthogonalization is a general principle of neural coding during learning.
+
+The remainder of this thesis follows this structure. Chapter \ref{ch:Methods} describes the experimental procedures, including the behavioral paradigm, surgical methods, and data acquisition. Chapter \ref{ch:BehavioralAnalysis} presents the characterization of learning trajectories and behavioral strategies. Chapter \ref{ch:NeuralAnalysis} analyzes population activity patterns and their evolution during training. Chapter \ref{ch:ComputationalModels} compares the observed dynamics to predictions from machine learning models. Finally, Chapter \ref{ch:Discussion} situates these findings within the broader literature on cortico hippocampal interactions and learning algorithms, and discusses implications for understanding how brains acquire and maintain complex behaviors.
